@@ -11,7 +11,7 @@ const config = {
   title: "Daolympus Docs",
   tagline: "",
   url: "https://docs.daolympus.world",
-  baseUrl: "/",
+  baseUrl: "/daolympus-docs",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.svg",

@@ -2,11 +2,11 @@
 
 
 
-> Olympus Range Operator
+> DAOlympus Range Operator
 
-Olympus Range Operator (Policy) Contract
+DAOlympus Range Operator (Policy) Contract
 
-*The Olympus Range Operator performs market operations to enforce OlympusDAO&#39;s OHM price range         guidance policies against a specific reserve asset. The Operator is maintained by a keeper-triggered         function on the Olympus Heart contract, which orchestrates state updates in the correct order to ensure         market operations use up to date information. When the price of OHM against the reserve asset exceeds         the cushion spread, the Operator deploys bond markets to support the price. The Operator also offers         zero slippage swaps at prices dictated by the wall spread from the moving average. These market operations         are performed up to a specific capacity before the market must stabilize to regenerate the capacity.*
+*The Olympus Range Operator performs market operations to enforce OlympusDAO&#39;s DAOHM price range         guidance policies against a specific reserve asset. The Operator is maintained by a keeper-triggered         function on the Olympus Heart contract, which orchestrates state updates in the correct order to ensure         market operations use up to date information. When the price of DAOHM against the reserve asset exceeds         the cushion spread, the Operator deploys bond markets to support the price. The Operator also offers         zero slippage swaps at prices dictated by the wall spread from the moving average. These market operations         are performed up to a specific capacity before the market must stabilize to regenerate the capacity.*
 
 ## Methods
 
@@ -253,7 +253,7 @@ Returns the amount to be received from a swap
 
 | Name | Type | Description |
 |---|---|---|
-| tokenIn_ | contract ERC20 | - Token to swap into the wall         - If OHM: swap at the low wall price for Reserve         - If Reserve: swap at the high wall price for OHM |
+| tokenIn_ | contract ERC20 | - Token to swap into the wall         - If DAOHM: swap at the low wall price for Reserve         - If Reserve: swap at the high wall price for DAOHM |
 | amountIn_ | uint256 | - Amount of tokenIn to swap |
 
 #### Returns
@@ -330,7 +330,7 @@ function kernel() external view returns (contract Kernel)
 function ohm() external view returns (contract ERC20)
 ```
 
-OHM token contract
+DAOHM token contract
 
 
 
@@ -585,7 +585,7 @@ Swap at the current wall prices
 
 | Name | Type | Description |
 |---|---|---|
-| tokenIn_ | contract ERC20 | - Token to swap into the wall         - OHM: swap at the low wall price for Reserve         - Reserve: swap at the high wall price for OHM |
+| tokenIn_ | contract ERC20 | - Token to swap into the wall         - DAOHM: swap at the low wall price for Reserve         - Reserve: swap at the high wall price for DAOHM |
 | amountIn_ | uint256 | - Amount of tokenIn to swap |
 | minAmountOut_ | uint256 | - Minimum amount of opposite token to receive |
 

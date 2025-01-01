@@ -3,9 +3,15 @@ sidebar_position: 2
 sidebar_label: Submission Guidelines
 ---
 
+:::warning
+
+DAOlympus governance has *not* been deployed yet. The following docs are provided for informational purposes only and are subject to change.
+
+:::
+
 # Submission Guidelines
 :::info
-Before submitting a new proposal, it's essential to understand Olympus' On-Chain Governance (OCG) system. Please review the details in the [Intro page](./00_governance.md) and [Proposal lifecycle page](./proposal_lifecycle).
+Before submitting a new proposal, it's essential to understand DAOlympus' On-Chain Governance (OCG) system. Please review the details in the [Intro page](./00_governance.md) and [Proposal lifecycle page](./proposal_lifecycle).
 :::
 
 
@@ -13,7 +19,7 @@ Before submitting a new proposal, it's essential to understand Olympus' On-Chain
 To submit a new proposal to on-chain governance (OCG), submitters interact directly with Governor Bravo contract by calling `propose()` function. However, the following requirements must be met before submitting a proposal:
 
 1. **Minimum voting power** - proposer must hold, and maintain, at least `proposalThreshold` of the total gOHM supply at time of proposal submission.
-2. **Code review** - proposals must be added, tested and simulated in [olympus-v3 repository](https://github.com/OlympusDAO/olympus-v3/). This process ensures that the proposal is secure and achieves the intended outcomes without putting the protocol at risk.
+2. **Code review** - proposals must be added, tested and simulated in [daolympus-v3 repository](https://github.com/daolympus/daolympus-v3/). This process ensures that the proposal is secure and achieves the intended outcomes without putting the protocol at risk.
 
 ### Minimum voting power
 Whily anyone can submit a proposal by calling `propose()`, the transaction will revert unless proposer has a minimum amount of voting power to submit a proposal, determined by calling the `getProposalThresholdVotes()` function:
@@ -24,14 +30,14 @@ function getProposalThresholdVotes() public view returns (uint256) {
 }
 ```
 
-The proposer's gOHM balance is checked within the `propose()`, `queue()`, and `execute()` functions. If, at any time, the proposer's gOHM balance falls below the proposal threshold, the proposal will fail. This approach ensures that proposers (or their delegators) maintain skin in the game, preventing them from benefiting from malicious proposals.
+The proposer's gDAOHM balance is checked within the `propose()`, `queue()`, and `execute()` functions. If, at any time, the proposer's gDAOHM balance falls below the proposal threshold, the proposal will fail. This approach ensures that proposers (or their delegators) maintain skin in the game, preventing them from benefiting from malicious proposals.
 
 :::info
-The current proposalThreshold is set to 0.017% of the total gOHM supply
+The current proposalThreshold is set to 0.017% of the total gDAOHM supply
 :::
 
 ### Code review
-Olympus uses [forge-proposal-simulator](https://solidity-labs.gitbook.io/forge-proposal-simulator/), an open-source framework designed to structure proposals effectively and streamline the proposal verification process. On a high-level, this framework allows anyone to execute proposals in a forked environment and develop integration tests to examine the new system's behavior in a controlled sandbox.
+DAOlympus uses [forge-proposal-simulator](https://solidity-labs.gitbook.io/forge-proposal-simulator/), an open-source framework designed to structure proposals effectively and streamline the proposal verification process. On a high-level, this framework allows anyone to execute proposals in a forked environment and develop integration tests to examine the new system's behavior in a controlled sandbox.
 
 :::warning Warning
 Due to the importance of this framework in ensuring transparency and security, **Emergency MS will immediately veto any proposals not satisfying the two requirements**. This stance is based on the belief that bypassing the framework indicates an attempt to pass a harmful proposal by obfuscating its review process.
@@ -40,14 +46,14 @@ Due to the importance of this framework in ensuring transparency and security, *
 ## Instructions
 To successfully submit a proposal, the proposer must do the following:
 
-1. Submit code as a pull request to [olympus-v3 repo](https://github.com/OlympusDAO/olympus-v3)
+1. Submit code as a pull request to [daolympus-v3 repo](https://github.com/daolympus/olympus-v3)
 2. Reach out in Discord to request a review from the community
-3. Acquire, or be delegated to, `proposalThreshold` percent of gOHM supply. Proposer must maintain that amount of gOHM until conclusion of proposal
+3. Acquire, or be delegated to, `proposalThreshold` percent of gDAOHM supply. Proposer must maintain that amount of gDAOHM until conclusion of proposal
 4. Call `propose()` on Governor Bravo contract, including the PR link in the description
 
 To submit a successful PR with integration tests, begin by creating a new contract in `src/proposals/` named after its corresponding OIP (e.g., `OIP_XXX.sol`). The contract should inherit `GovernorBravoProposal`, and use [OIP_XXX.sol](./OIP_XXX.sol) as a template. 
 
-Declare all necessary dependencies in [address registry](https://github.com/OlympusDAO/olympus-v3/blob/master/src/proposals/addresses.json). Follow this naming convention:
+Declare all necessary dependencies in [address registry](https://github.com/daolympus/olympus-v3/blob/master/src/proposals/addresses.json). Follow this naming convention:
 - Use lowercase.
 - Separate words with dashes.
 - Start with the source: `"olympus"` or `"external"`.
@@ -56,18 +62,17 @@ Declare all necessary dependencies in [address registry](https://github.com/Olym
 - Exceptions: `"proposer"`, `"olympus-governor"`, `"olympus-kernel"`.
 
 Examples:
-- Olympus policies: `"olympus-policy-xxx"`
-- Olympus modules: Use the following pattern instead of importing module addresses:
+- DAOlympus policies: `"daolympus-policy-xxx"`
+- DAOlympus modules: Use the following pattern instead of importing module addresses:
     ```solidity
-    Kernel kernel = Kernel(addresses.getAddress("olympus-kernel"));
+    Kernel kernel = Kernel(addresses.getAddress("daolympus-kernel"));
     address TRSRY = address(kernel.getModuleForKeycode(toKeycode(bytes5("TRSRY"))));
     ```
-- External tokens (DAI, sDAI, etc): `external-tokens-xxx`
+- DAO tokens (FDREAM, ALCH, etc.): `external-tokens-xxx`
 - External contracts: `external-coolers-factory`
-- Olympus multisigs: `olympus-multisig-dao` or `olympus-multisig-emergency`
-- Olympus legacy contracts (OHM, gOHM, staking): `"olympus-legacy-xxx"`
+- DAOlympus multisigs: `daolympus-multisig-dao` or `daolympus-multisig-emergency`
 
-Deploy the smart contracts by running `_deploy()`. If the contract is already deployed, import addresses from [address registry](https://github.com/OlympusDAO/olympus-v3/blob/master/src/proposals/addresses.json) instead. If necessary, use `_afterDeploy()` hook to cache balances or other values to be used in `validate()`.
+Deploy the smart contracts by running `_deploy()`. If the contract is already deployed, import addresses from [address registry](https://github.com/DAOlympus/olympus-v3/blob/master/src/proposals/addresses.json) instead. If necessary, use `_afterDeploy()` hook to cache balances or other values to be used in `validate()`.
 
 Construct the proposal actions by using `_build()`. Use the following functions:
     ```solidity
@@ -114,7 +119,7 @@ Simulate the proposal execution by calling `_run()`. Use the provided code:
 
 Perform validations and assertions through `_validate_()`. Validations should definitely demonstrate to the community that the proposal is secure and achieves the intended outcomes without putting the protocol at risk.
 
-Create tests in [src/test/proposals/](https://github.com/OlympusDAO/olympus-v3/tree/master/src/test/proposals) named after the OIP (e.g., `OIP_XXX.t.sol` for unit tests and `testProposal_xxx` for integration tests). Use [OIP_XXX.t.sol](https://github.com/OlympusDAO/olympus-v3/tree/master/src/test/proposals/OIP_XXX.t.sol) as a template. Import your proposal, and its dependencies. Modify `setUp()` in `OIP_XXX.sol` and include this test to ensure `setUp()` is executed correctly:
+Create tests in [src/test/proposals/](https://github.com/OlympusDAO/olympus-v3/tree/master/src/test/proposals) named after the DIP (e.g., `DIP_XXX.t.sol` for unit tests and `testProposal_xxx` for integration tests). Use [DIP_XXX.t.sol](https://github.com/OlympusDAO/olympus-v3/tree/master/src/test/proposals/DIP_XXX.t.sol) as a template. Import your proposal, and its dependencies. Modify `setUp()` in `DIP_XXX.sol` and include this test to ensure `setUp()` is executed correctly:
 
 ```solidity
 // [DO NOT DELETE] Dummy test to ensure that `setUp` is executed
@@ -123,5 +128,5 @@ function testProposal() public {
 }
 ```
 
-Once you feel comfortable, open a pull request in [olympus-v3 repo](https://github.com/OlympusDAO/olympus-v3) in the format `OIP-XXX: proposal simulation`.
+Once you feel comfortable, open a pull request in [daolympus-v3 repo](https://github.com/daolympus/olympus-v3) in the format `DIP-XXX: proposal simulation`.
 

@@ -1,6 +1,6 @@
 # Default Framework
 
-Olympus V3 uses the [Default Framework](https://github.com/fullyallocated/Default) to configure the protocol’s smart contracts and authorized addresses within the system. More information regarding Default Framework can be found in the [Contracts Overview section](../technical/00_overview.md) of the docs.
+DAOlympus, like Olympus V3, uses the [Default Framework](https://github.com/fullyallocated/Default) to configure the protocol’s smart contracts and authorized addresses within the system. More information regarding Default Framework can be found in the [Contracts Overview section](../technical/00_overview.md) of the docs.
 
 ## ROLES.sol
 Module that stores all the active system roles.
@@ -52,7 +52,7 @@ Policy that has the ability to shutdown critical system functionalities.
 ![](/gitbook/assets/security-diagrams/olympus-emergency.svg)
 
 ## Heart.sol
-Policy that provides keeper rewards to call the `beat()` function which orchestrates state updates and fuels Olympus' market operations.
+Policy that provides keeper rewards to call the `beat()` function which orchestrates state updates and fuels DAOlympus' market operations.
 
 **Dependencies**
 - `ROLES` module
@@ -67,7 +67,7 @@ Policy that provides keeper rewards to call the `beat()` function which orchestr
 ![](/gitbook/assets/security-diagrams/olympus-heart.svg)
 
 ## Operator.sol
-Policy that performs market operations to enforce OlympusDAO's OHM price range guidance policies against a specific reserve asset. These market operations are only performed under certain conditions and up to a specific capacity before the market must stabilize to regenerate more capacity.
+Policy that performs market operations to enforce DAOlympus's DAOHM price range guidance policies against a specific reserve asset. These market operations are only performed under certain conditions and up to a specific capacity before the market must stabilize to regenerate more capacity.
 
 **Dependencies**
 - `ROLES` module
@@ -178,7 +178,7 @@ Policy that manages the auctions and the issuance of OHM Bonds.
 - `bondmanager_admin`: Has the ability to configure the auction parameters, create new bond markets, finalize them, as well as some emergency functions in case there is a malfunction.
 	
 ## Clearinghouse.sol
-Policy that manages loan workflows including fulfilling requests, extending maturities, claiming defaults and rebalancing funds to/from Olympus Treasury
+Policy that manages loan workflows including fulfilling requests, extending maturities, claiming defaults and rebalancing funds to/from DAOlympus Treasury
 
 **Dependencies**
 - `ROLES` module

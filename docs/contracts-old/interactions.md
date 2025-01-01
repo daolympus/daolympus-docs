@@ -3,7 +3,7 @@ sidebar_position: 3
 ---
 # Interactions
 
-Olympus has numerous contracts that work together to provide the required functions of the currency: staking, bonds, tokens, treasury allocation.
+Daolympus has numerous contracts that work together to provide the required functions of the currency: staking, bonds, tokens, treasury allocation.
 
 The diagram below illustrates the interactions between each contract on Ethereum mainnet.
 

@@ -6,7 +6,7 @@
 
 Price oracle data storage
 
-*The Olympus Price Oracle contract provides a standard interface for OHM price data against a reserve asset.         It also implements a moving average price calculation (same as a TWAP) on the price feed data over a configured         duration and observation frequency. The data provided by this contract is used by the Olympus Range Operator to         perform market operations. The Olympus Price Oracle is updated each epoch by the Olympus Heart contract.*
+*The Olympus Price Oracle contract provides a standard interface for DAOHM price data against a reserve asset.         It also implements a moving average price calculation (same as a TWAP) on the price feed data over a configured         duration and observation frequency. The data provided by this contract is used by the Olympus Range Operator to         perform market operations. The Olympus Price Oracle is updated each epoch by the Olympus Heart contract.*
 
 ## Methods
 
@@ -107,7 +107,7 @@ Change the observation frequency of the moving average (i.e. how often a new obs
 ### changeUpdateThresholds
 
 ```solidity
-function changeUpdateThresholds(uint48 ohmEthUpdateThreshold_, uint48 reserveEthUpdateThreshold_) external nonpayable
+function changeUpdateThresholds(uint48 daohmEthUpdateThreshold_, uint48 reserveEthUpdateThreshold_) external nonpayable
 ```
 
 Change the update thresholds for the price feeds
@@ -118,7 +118,7 @@ Change the update thresholds for the price feeds
 
 | Name | Type | Description |
 |---|---|---|
-| ohmEthUpdateThreshold_ | uint48 | - Maximum allowed time between OHM/ETH price feed updates |
+| daohmEthUpdateThreshold_ | uint48 | - Maximum allowed time between DAOHM/ETH price feed updates |
 | reserveEthUpdateThreshold_ | uint48 | - Maximum allowed time between Reserve/ETH price feed updates |
 
 ### cumulativeObs
@@ -161,7 +161,7 @@ Number of decimals in the price values provided by the contract.
 function getCurrentPrice() external view returns (uint256)
 ```
 
-Get the current price of OHM in the Reserve asset from the price feeds
+Get the current price of DAOHM in the Reserve asset from the price feeds
 
 
 
@@ -178,7 +178,7 @@ Get the current price of OHM in the Reserve asset from the price feeds
 function getLastPrice() external view returns (uint256)
 ```
 
-Get the last stored price observation of OHM in the Reserve asset
+Get the last stored price observation of DAOHM in the Reserve asset
 
 
 
@@ -195,7 +195,7 @@ Get the last stored price observation of OHM in the Reserve asset
 function getMovingAverage() external view returns (uint256)
 ```
 
-Get the moving average of OHM in the Reserve asset over the defined window (see movingAverageDuration and observationFrequency).
+Get the moving average of DAOHM in the Reserve asset over the defined window (see movingAverageDuration and observationFrequency).
 
 
 
@@ -364,13 +364,13 @@ Array of price observations. Check nextObsIndex to determine latest data point.
 |---|---|---|
 | _0 | uint256 | undefined |
 
-### ohmEthPriceFeed
+### daohmEthPriceFeed
 
 ```solidity
-function ohmEthPriceFeed() external view returns (contract AggregatorV2V3Interface)
+function daohmEthPriceFeed() external view returns (contract AggregatorV2V3Interface)
 ```
 
-OHM/ETH price feed
+DAOHM/ETH price feed
 
 
 
@@ -381,13 +381,13 @@ OHM/ETH price feed
 |---|---|---|
 | _0 | contract AggregatorV2V3Interface | undefined |
 
-### ohmEthUpdateThreshold
+### daohmEthUpdateThreshold
 
 ```solidity
-function ohmEthUpdateThreshold() external view returns (uint48)
+function daohmEthUpdateThreshold() external view returns (uint48)
 ```
 
-Maximum expected time between OHM/ETH price feed updates
+Maximum expected time between DAOHM/ETH price feed updates
 
 
 
@@ -421,7 +421,7 @@ Reserve/ETH price feed
 function reserveEthUpdateThreshold() external view returns (uint48)
 ```
 
-Maximum expected time between OHM/ETH price feed updates
+Maximum expected time between DAOHM/ETH price feed updates
 
 
 
@@ -500,7 +500,7 @@ event ObservationFrequencyChanged(uint48 observationFrequency_)
 ### UpdateThresholdsChanged
 
 ```solidity
-event UpdateThresholdsChanged(uint48 ohmEthUpdateThreshold_, uint48 reserveEthUpdateThreshold_)
+event UpdateThresholdsChanged(uint48 daohmEthUpdateThreshold_, uint48 reserveEthUpdateThreshold_)
 ```
 
 
@@ -511,7 +511,7 @@ event UpdateThresholdsChanged(uint48 ohmEthUpdateThreshold_, uint48 reserveEthUp
 
 | Name | Type | Description |
 |---|---|---|
-| ohmEthUpdateThreshold_  | uint48 | undefined |
+| daohmEthUpdateThreshold_  | uint48 | undefined |
 | reserveEthUpdateThreshold_  | uint48 | undefined |
 
 

@@ -8,7 +8,7 @@ Transitioning from sOHM V1 to gOHM allows for multiple bonds to be taken at one 
 
 Partial liquidity will remain for v1 OHM while the migration is in progress. This provides sufficient liquidity for borrowers to close or move their borrowing position.
 
-You can read more about this on the [Olympus Medium page](https://olympusdao.medium.com/introducing-olympus-v2-c4ade14e9fe).
+You can read more about this on the [Daolympus Medium page](https://olympusdao.medium.com/introducing-olympus-v2-c4ade14e9fe).
 
 :::note
 For this article, we added V1 and V2 after each token name to help you differentiate between the old and new tokens. Partner websites, price aggregators, or your wallet will not display the version information.
@@ -36,7 +36,7 @@ No, you can migrate at your leisure once it goes live. The smart contract will k
 
 ## What is the migration process?
 
-When the migration is live, the Olympus front-end will be updated to allow the migration of all your V1 tokens (i.e. OHM, sOHM, and wsOHM) to gOHM.
+When the migration is live, the Daolympus front-end will be updated to allow the migration of all your V1 tokens (i.e. OHM, sOHM, and wsOHM) to gOHM.
 
 The migration process requires two steps: one to approve the contract for each of your V1 tokens, and another that actually migrates all your tokens to gOHM.
 
@@ -82,9 +82,9 @@ In V2, you can purchase multiple bonds of the same type without resetting the bo
 
 Also, there is no need to claim bond rewards and stake them manually, as this process will be automated. The bonders will receive their entitled sOHM at the end of the vesting period.
 
-Learn more about how bonds will behave in V2 from the [Olympus Medium page](https://olympusdao.medium.com/introducing-olympus-v2-c4ade14e9fe).
+Learn more about how bonds will behave in V2 from the [Daolympus Medium page](https://olympusdao.medium.com/introducing-olympus-v2-c4ade14e9fe).
 
-## Is Olympus V2 audited?
+## Is Daolympus V2 audited?
 
 All V2-related contracts are live, and some of them are still under audit process. We are working with Runtime Verification for the audit, and the results will be published once they become available.
 
@@ -93,7 +93,7 @@ All V2-related contracts are live, and some of them are still under audit proces
 [gOHM](../contracts/tokens#gohm) will be the first v2 token to roll out. Users
 can wrap their v1 sOHM tokens into gOHM tokens as part of the v2 migration.
 
-1\. Go to the [Wrap section of Olympus App](https://app.olympusdao.finance/#/wrap).
+1\. Go to the [Wrap section of Daolympus App](https://app.olympusdao.finance/#/wrap).
 Select gOHM under the drop-down menu.
 
 ![Select gOHM](/gitbook/assets/using-the-website/migration_v2/select_gohm.png)
@@ -118,7 +118,7 @@ if you can't see it.
 With our V2 migration tool, you can migrate OHM V1, sOHM V1, and wsOHM V1 to
 [gOHM](../contracts/tokens#gohm).
 
-1\. Go to the [Stake section of Olympus App](https://app.olympusdao.finance/#/stake).
+1\. Go to the [Stake section of Daolympus App](https://app.olympusdao.finance/#/stake).
 You will see a notification on top if you have assets to migrate.
 
 ![There are assets to migrate](/gitbook/assets/using-the-website/migration_v2/notification.png)

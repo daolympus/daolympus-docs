@@ -4,7 +4,7 @@
 
 
 
-Parthenon, OlympusDAO&#39;s on-chain governance system.
+Parthenon, DAOlympus&#39;s on-chain governance system, as implemented by OlympusDAO.
 
 *The Parthenon policy is also the Kernel&#39;s Executor.*
 

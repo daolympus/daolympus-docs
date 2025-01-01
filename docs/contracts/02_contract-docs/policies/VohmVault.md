@@ -93,10 +93,10 @@ function deposit(uint256 assets_) external nonpayable
 |---|---|---|
 | assets_ | uint256 | undefined |
 
-### gOHM
+### gDAOHM
 
 ```solidity
-function gOHM() external view returns (contract ERC20)
+function gDAOHM() external view returns (contract ERC20)
 ```
 
 

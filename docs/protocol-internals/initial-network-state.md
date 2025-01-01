@@ -1,8 +1,8 @@
 # Initial Network State
 
-**Our initial goal is not to find a stable price.** This may seem antithetical to our currency aspirations, but we ensure you it is not. Olympus can be tuned to optimize for different things. The main tradeoff is volatility and profitability versus stability and consistency. With volatility and profit comes growth; this is what we want early on.
+**Our initial goal is not to find a stable price.** This may seem antithetical to our currency aspirations, but we ensure you it is not. Daolympus can be tuned to optimize for different things. The main tradeoff is volatility and profitability versus stability and consistency. With volatility and profit comes growth; this is what we want early on.
 
-With tight policy and scale, Olympus should function well as a stable asset. Upward and downward pressures should stabilize at some non-intrinsic value. With loose policy, regardless of scale, Olympus has the potential to act as a wealth creation machine. The market premium of the token measures the positive sum of the game; all extrinsic value is new wealth created.
+With tight policy and scale, Daolympus should function well as a stable asset. Upward and downward pressures should stabilize at some non-intrinsic value. With loose policy, regardless of scale, Daolympus has the potential to act as a wealth creation machine. The market premium of the token measures the positive sum of the game; all extrinsic value is new wealth created.
 
 ## Alpha State
 
@@ -12,7 +12,7 @@ The following are the initial policy states:
 
 * **BCV**
 
-  [BCV](https://docs.olympusdao.finance/references/glossary#bcv) varies based on bond types. It is tuned regularly by the Policy team to meet the protocol goals. For example, if the protocol wants to accumulate more liquidity into its treasury, it can lower the BCV for [liquidity bonds](https://docs.olympusdao.finance/references/glossary#liquidity-bonds) to increase their bond capacity. To view the BCV targets for different bond types, visit the [Olympus Policy Dune page](https://dune.xyz/shadow/Olympus-Policy).
+  [BCV](https://docs.olympusdao.finance/references/glossary#bcv) varies based on bond types. It is tuned regularly by the Policy team to meet the protocol goals. For example, if the protocol wants to accumulate more liquidity into its treasury, it can lower the BCV for [liquidity bonds](https://docs.olympusdao.finance/references/glossary#liquidity-bonds) to increase their bond capacity. To view the BCV targets for different bond types, visit the [Daolympus Policy Dune page](https://dune.xyz/shadow/Daolympus-Policy).
 
 * **Bond vesting term**
 
@@ -20,7 +20,7 @@ The following are the initial policy states:
 
 * **OHM distribution**
 
-  Every time someone purchases a bond, the proceed will go to the [Olympus treasury](https://docs.olympusdao.finance/references/contracts#treasury). A corresponding amount of OHM will be minted and distributed to three parties:
+  Every time someone purchases a bond, the proceed will go to the [Daolympus treasury](https://docs.olympusdao.finance/references/contracts#treasury). A corresponding amount of OHM will be minted and distributed to three parties:
 
   * Bonder
 

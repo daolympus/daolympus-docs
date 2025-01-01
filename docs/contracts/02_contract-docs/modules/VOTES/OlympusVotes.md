@@ -1,4 +1,4 @@
-# OlympusVotes
+# DAOlympusVotes
 
 
 
@@ -258,10 +258,10 @@ function deposit(uint256 assets_, address receiver_) external nonpayable returns
 |---|---|---|
 | _0 | uint256 | undefined |
 
-### gOHM
+### gDAOHM
 
 ```solidity
-function gOHM() external view returns (contract ERC20)
+function gDAOHM() external view returns (contract ERC20)
 ```
 
 

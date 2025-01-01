@@ -1,6 +1,6 @@
 # Policy
 
-Olympus features policy constants that allow us to optimize the system.
+Daolympus features policy constants that allow us to optimize the system.
 
 ## Bonds
 

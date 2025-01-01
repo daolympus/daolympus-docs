@@ -179,7 +179,7 @@ function kernel() external view returns (contract Kernel)
 function nextRewardFor(address who_) external view returns (uint256)
 ```
 
-Returns the next reward for the given address based on their OHM balance.
+Returns the next reward for the given address based on their DAOHM balance.
 
 
 
@@ -266,7 +266,7 @@ Mints the bounty (if &gt; 0) to the staking contract for distribution.
 
 | Name | Type | Description |
 |---|---|---|
-| _0 | uint256 | uint256 The amount of OHM minted as a bounty. |
+| _0 | uint256 | uint256 The amount of DAOHM minted as a bounty. |
 
 ### rewardRate
 
@@ -299,7 +299,7 @@ Adjusts the bounty
 
 | Name | Type | Description |
 |---|---|---|
-| bounty_ | uint256 | The new bounty amount in OHM (9 decimals). |
+| bounty_ | uint256 | The new bounty amount in DAOHM (9 decimals). |
 
 ### setPools
 
@@ -323,7 +323,7 @@ Sets the Uniswap V2 pools to be minted into
 function setRewardRate(uint256 newRewardRate_) external nonpayable
 ```
 
-Sets the new OHM reward rate to mint and distribute per epoch
+Sets the new DAOHM reward rate to mint and distribute per epoch
 
 
 

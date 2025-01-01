@@ -4,11 +4,11 @@ sidebar_position: 0
 
 # Overview
 
-Olympus V3 is the current and latest iteration of the Olympus protocol. It is a foundation for the future of the protocol, utilizing the [Default Framework](https://github.com/fullyallocated/Default) to allow extensibility at the base layer via fully onchain governance mechanisms. There are a few major pieces to V3: the core registry (Kernel), treasury, minter, governor, and finally, the range-bound stability (RBS) system.
+DAOlympus is based on Olympus V3, the current and latest iteration of the Olympus protocol. It utilizes the [Default Framework](https://github.com/fullyallocated/Default) to allow extensibility at the base layer via fully onchain governance mechanisms. There are a few major pieces to V3: the core registry (Kernel), treasury, minter, governor, and finally, the range-bound stability (RBS) system. RBS is not currently in use by DAOlympus but is considered for future activation.
 
 ## Default Framework: Kernel, Modules and Policies Summary
 
-Olympus V3 uses the [Default Framework](https://github.com/fullyallocated/Default) to configure the protocol’s smart contracts and authorized addresses within the system. In this framework, all contract dependencies and authorizations are managed via “Actions” in the Kernel.sol contract. These actions are as follows:
+DAOlympus uses the [Default Framework](https://github.com/fullyallocated/Default) to configure the protocol’s smart contracts and authorized addresses within the system. In this framework, all contract dependencies and authorizations are managed via “Actions” in the Kernel.sol contract. These actions are as follows:
 
 - Installing a Module
 - Upgrading a Module
@@ -36,9 +36,9 @@ Modules are **internal-facing smart contracts** that store shared state across t
 
 In Default protocols, Module contracts are referenced internally as a 5 byte uppercase `KEYCODE` representing their underlying data models. For example, an ERC20 token module might have the keycode `TOKEN`, while a Treasury module might have the keycode `TRSRY`. This abstraction is intended to help clarify and distinguish where side effects occur when the protocol experiences external interactions, which should simplify both reading, writing and auditing its business logic.
 
-In Olympus V3, we have the following Modules:
+In DAOlympus, we have the following Modules:
 
-- `MINTR` — The Minter Module, a wrapper for the `OHM` ERC20 contract. Used for minting and burning OHM. A wrapper is used to allow the legacy ERC20 to fit in the Default architecture.
+- `MINTR` — The Minter Module, a wrapper for the `DAOHM` ERC20 contract. Used for minting and burning OHM.
 - `TRSRY` — The Treasury Module, used for depositing and withdrawing assets within the protocol. Also manages token debt allocated to policies.
 - `PRICE` — Used to store historical price oracle data. Used for the functionality of the Range-Bound Stability (RBS) system.
 - `RANGE` — Stores range information for the RBS system.
@@ -66,10 +66,6 @@ Range-Bound Stability (RBS) policies:
 - `Heart.sol` — Contract to allow easy access for keepers to call RBS keeper functions.
 - `PriceConfig.sol` — Used for a specified role to adjust parameters in the `PRICE` module
 
-Cooler Loans policies:
-
-- `Clearinghouse.sol` — Clearinghouse is a lender-owned contract that manages loan workflows including fulfilling requests, extending maturities, claiming defaults and rebalancing funds to/from Olympus Treasury.
-
 Governance policies (NOTE: Still have not been deployed):
 
 - `Parthenon.sol` - Governor contract specially made for Default, modeled after Proof-of-Stake.
@@ -84,6 +80,6 @@ General protocol and management policies:
 
 ### Protocol Architecture
 
-The following diagram represents all the active modules and polices that take part in Olympus V3.
+The following diagram represents all the active modules and polices that take part in Olympus V3. It can be referenced to understand the in-progress implementation of DAOlympus.
 
 ![Olympus V3](/gitbook/assets/security-diagrams/olympus-v3.svg)

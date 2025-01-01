@@ -8,9 +8,9 @@ const katex = require("rehype-katex");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Olympus Docs",
+  title: "Daolympus Docs",
   tagline: "",
-  url: "https://docs.olympusdao.finance",
+  url: "https://docs.daolympus.world",
   baseUrl: "/",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
@@ -18,7 +18,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "OlympusDAO", // Usually your GitHub org/user name.
+  organizationName: "daolympus", // Usually your GitHub org/user name.
   projectName: "olympus-docs", // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
@@ -38,7 +38,6 @@ const config = {
           routeBasePath: "/main", // defaults to docs, but `main` maintains the gitbook paths
           sidebarPath: require.resolve("./sidebars.js"),
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/OlympusDAO/olympus-docs/blob/main",
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },
@@ -71,11 +70,11 @@ const config = {
         respectPrefersColorScheme: false,
       },
       navbar: {
-        title: "",
+        title: "DAOlympus Docs",
         logo: {
           alt: "Olympus Docs",
           src: "img/logo.svg",
-          srcDark: "img/logo_dark.svg",
+          srcDark: "img/logo.svg",
         },
         items: [
           // {
@@ -108,11 +107,11 @@ const config = {
           //   position: "left",
           //   label: "Technical Docs",
           // },
-          {
-            href: "https://github.com/OlympusDAO/olympus-docs",
-            label: "GitHub",
-            position: "right",
-          },
+          // {
+          //   href: "https://github.com/OlympusDAO/olympus-docs",
+          //   label: "GitHub",
+          //   position: "right",
+          // },
         ],
       },
       footer: {
@@ -131,24 +130,20 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Discord",
-                href: "https://discord-invite.olympusdao.finance/",
-              },
-              {
                 label: "Twitter",
-                href: "https://twitter.com/OlympusDAO",
+                href: "https://twitter.com/daolympusworld",
               },
             ],
           },
-          {
-            title: "More",
-            items: [
-              {
-                label: "GitHub",
-                href: "https://github.com/OlympusDAO",
-              },
-            ],
-          },
+          // {
+          //   title: "More",
+          //   items: [
+          //     {
+          //       label: "GitHub",
+          //       href: "https://github.com/OlympusDAO",
+          //     },
+          //   ],
+          // },
         ],
       },
       prism: {

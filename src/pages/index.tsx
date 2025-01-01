@@ -25,20 +25,20 @@ export const actions = [
     title: "Overview",
     icon: InformationCircleIcon,
     to: "./main/overview/intro",
-    text: `What is Olympus Protocol?`,
+    text: `What is DAOlympus Protocol?`,
   },
-  {
-    title: "Governance",
-    icon: BuildingLibraryIcon,
-    to: "./main/governance/governance",
-    text: `An overview of Olympus Governance`,
-  },
-  {
-    title: "Technical",
-    icon: BookOpenIcon,
-    to: "./main/technical/overview",
-    text: `Technical information and documentation`,
-  }
+    /* {
+  *   title: "Governance",
+  *   icon: BuildingLibraryIcon,
+  *   to: "./main/governance/governance",
+  *   text: `An overview of Olympus Governance`,
+  * },
+  * {
+  *   title: "Technical",
+  *   icon: BookOpenIcon,
+  *   to: "./main/technical/overview",
+  *   text: `Technical information and documentation`,
+  * } */
   /*
   {
     title: "User Guides",
@@ -50,44 +50,44 @@ export const actions = [
 ];
 
 export const github = [
-  {
-    title: "olympus-v3",
-    href: "https://github.com/OlympusDAO/olympus-v3",
-    icon: CodeBracketIcon,
-  },
-  {
-    title: "olympus-contracts (OLD)",
-    href: "https://github.com/OlympusDAO/olympus-contracts",
-    icon: CodeBracketIcon,
-  },
-  {
-    title: "olympus-frontend",
-    href: "https://github.com/OlympusDAO/olympus-frontend",
-    icon: CodeBracketIcon,
-  },
-  {
-    title: "protocol-metrics-subgraph",
-    href: "https://github.com/OlympusDAO/olympus-protocol-metrics-subgraph",
-    icon: CodeBracketIcon,
-  },
+    /* {
+  *   title: "olympus-v3",
+  *   href: "https://github.com/OlympusDAO/olympus-v3",
+  *   icon: CodeBracketIcon,
+  * },
+  * {
+  *   title: "olympus-contracts (OLD)",
+  *   href: "https://github.com/OlympusDAO/olympus-contracts",
+  *   icon: CodeBracketIcon,
+  * },
+  * {
+  *   title: "olympus-frontend",
+  *   href: "https://github.com/OlympusDAO/olympus-frontend",
+  *   icon: CodeBracketIcon,
+  * },
+  * {
+  *   title: "protocol-metrics-subgraph",
+  *   href: "https://github.com/OlympusDAO/olympus-protocol-metrics-subgraph",
+  *   icon: CodeBracketIcon,
+  * }, */
 ];
 
 export const Guides = [
-  {
-    title: "What is Olympus Protocol?",
-    text: "An overview of the Olympus protocol",
-    to: "./main/overview/intro",
-  },
-  {
-    title: "What is Range Bound Stability?",
-    text: "An overview of the RBS",
-    to: "./main/overview/range-bound",
-  },
-  {
-    title: "What is Cooler Loans?",
-    text: "An overview of Cooler Loans",
-    to: "./main/overview/cooler-loans",
-  },
+    /* {
+  *   title: "What is Olympus Protocol?",
+  *   text: "An overview of the Olympus protocol",
+  *   to: "./main/overview/intro",
+  * },
+  * {
+  *   title: "What is Range Bound Stability?",
+  *   text: "An overview of the RBS",
+  *   to: "./main/overview/range-bound",
+  * },
+  * {
+  *   title: "What is Cooler Loans?",
+  *   text: "An overview of Cooler Loans",
+  *   to: "./main/overview/cooler-loans",
+  * }, */
 ];
 
 const Container = styled.div`
@@ -98,6 +98,25 @@ const Container = styled.div`
 const Row = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 1rem 0;
+  max-width: 960px;
+
+  @media (max-width: 960px) {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    max-width: 100%;
+    margin: 0 1rem;
+  }
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const OneRow= styled(Row)`
+  grid-template-columns: 1fr;
   grid-gap: 16px;
   justify-content: center;
   margin: 0 auto;
@@ -258,8 +277,8 @@ const HideMedium = styled.div`
 export default function Home() {
   return (
     <Layout
-      title={`Olympus Docs`}
-      description="Documentation For The Olympus Protocol"
+      title={`DAOlympus Docs`}
+      description="Documentation For The DAOlympus Protocol"
     >
       <Container>
         <DocsHeader>
@@ -272,16 +291,9 @@ export default function Home() {
               alignItems: "center",
             }}
           >
-            <h1 style={{ fontWeight: "600" }}> Welcome to the Olympus Docs</h1>
+            <h1 style={{ fontWeight: "600" }}> Welcome to the DAOlympus Docs</h1>
           </div>
-          <StyledTitleImage
-            alt="Docusaurus themed image"
-            sources={{
-              light: useBaseUrl("/img/background.png"),
-              dark: useBaseUrl("/img/background-dark.png"),
-            }}
-          />
-          <Row>
+          <OneRow>
             {actions.map((action) => (
               <Link style={{ textDecoration: "none" }} to={action.to}>
                 <ShadowCard key={action.title}>
@@ -303,10 +315,10 @@ export default function Home() {
                 </ShadowCard>
               </Link>
             ))}
-          </Row>
+          </OneRow>
         </DocsHeader>
 
-        <TwoRow
+              {/* <TwoRow
           style={{
             gap: "56px",
             marginTop: "4rem",
@@ -412,10 +424,9 @@ export default function Home() {
             ))}
           </div>
         </TwoRow>
+ */}
 
-        <hr />
-
-        <Row>
+              {/* <Row>
           <Link
             style={{ textDecoration: "none" }}
             href={"https://discord-invite.olympusdao.finance/"}
@@ -497,7 +508,7 @@ export default function Home() {
               </div>
             </CenterCard>
           </Link>
-        </Row>
+        </Row> */}
       </Container>
     </Layout>
   );

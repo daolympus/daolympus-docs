@@ -24,7 +24,7 @@ $$
 bond Price = 1 + Premium
 $$
 
-OHM has an intrinsic value of 1 DAI, which is roughly equivalent to $1. In order to make a profit from bonding, Olympus charges a premium for each bond.
+OHM has an intrinsic value of 1 DAI, which is roughly equivalent to $1. In order to make a profit from bonding, Daolympus charges a premium for each bond.
 
 $$
 Premium = debt Ratio * BCV
@@ -71,7 +71,7 @@ $$
 OHM_{stakers} = OHM_{totalSupply} * rewardRate
 $$
 
-At the end of each epoch, the treasury mints OHM at a set [reward rate](https://docs.olympusdao.finance/references/glossary#reward-rate). These OHM will be distributed to all the stakers in the protocol. You can track the latest reward rate on the [Olympus Policy dashboard](https://dune.xyz/shadow/Olympus-Policy).
+At the end of each epoch, the treasury mints OHM at a set [reward rate](https://docs.olympusdao.finance/references/glossary#reward-rate). These OHM will be distributed to all the stakers in the protocol. You can track the latest reward rate on the [Daolympus Policy dashboard](https://dune.xyz/shadow/Olympus-Policy).
 
 $$
 OHM_{bonders} = bondPayout
@@ -97,7 +97,7 @@ $$
 OHM_{backing} = treasuryBalance_{stablecoin} + treasuryBalance_{otherAssets}
 $$
 
-Every OHM in circulation is backed by the Olympus treasury. The assets in the treasury can be divided into two categories: stablecoin and non-stablecoin.
+Every OHM in circulation is backed by the Daolympus treasury. The assets in the treasury can be divided into two categories: stablecoin and non-stablecoin.
 
 $$
 treasuryBalance_{stablecoin} = RFV_{reserveBond} + RFV_{lpBond}

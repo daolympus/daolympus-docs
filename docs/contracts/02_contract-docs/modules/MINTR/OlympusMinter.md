@@ -1,10 +1,10 @@
-# OlympusMinter
+# DAOlympusMinter
 
 
 
 
 
-Wrapper for minting and burning functions of OHM token.
+Wrapper for minting and burning functions of DAOHM token.
 
 
 
@@ -73,7 +73,7 @@ Re-activate minting and burning after shutdown.
 function active() external view returns (bool)
 ```
 
-Status of the minter. If false, minting and burning OHM is disabled.
+Status of the minter. If false, minting and burning DAOHM is disabled.
 
 
 
@@ -84,13 +84,13 @@ Status of the minter. If false, minting and burning OHM is disabled.
 |---|---|---|
 | _0 | bool | undefined |
 
-### burnOhm
+### burnDAOhm
 
 ```solidity
-function burnOhm(address from_, uint256 amount_) external nonpayable
+function burnDAOhm(address from_, uint256 amount_) external nonpayable
 ```
 
-Burn OHM from an address. Must have approval.
+Burn DAOHM from an address. Must have approval.
 
 
 
@@ -201,13 +201,13 @@ Mapping of who is approved for minting.
 |---|---|---|
 | _0 | uint256 | undefined |
 
-### mintOhm
+### mintDAOhm
 
 ```solidity
-function mintOhm(address to_, uint256 amount_) external nonpayable
+function mintDAOhm(address to_, uint256 amount_) external nonpayable
 ```
 
-Mint OHM to an address.
+Mint DAOHM to an address.
 
 
 
@@ -221,7 +221,7 @@ Mint OHM to an address.
 ### ohm
 
 ```solidity
-function ohm() external view returns (contract OlympusERC20Token)
+function daohm() external view returns (contract DAOlympusERC20Token)
 ```
 
 

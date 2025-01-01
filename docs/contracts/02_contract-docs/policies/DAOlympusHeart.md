@@ -1,12 +1,12 @@
-# OlympusHeart
+# DAOlympusHeart
 
 
 
-> Olympus Heart
+> DAOlympus Heart
 
-Olympus Heart (Policy) Contract
+DAOlympus Heart (Policy) Contract
 
-*The Olympus Heart contract provides keeper rewards to call the heart beat function which fuels         Olympus market operations. The Heart orchestrates state updates in the correct order to ensure         market operations use up to date information.*
+*The DAOlympus Heart contract provides keeper rewards to call the heart beat function which fuels         Olympus market operations. The Heart orchestrates state updates in the correct order to ensure         market operations use up to date information.*
 
 ## Methods
 

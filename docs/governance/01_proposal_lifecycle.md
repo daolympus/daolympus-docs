@@ -3,27 +3,33 @@ sidebar_position: 1
 sidebar_label: Proposal Lifecycle
 ---
 
+:::warning
+
+DAOlympus governance has *not* been deployed yet. The following docs are provided for informational purposes only and are subject to change.
+
+:::
+
 # Proposal Lifecycle
-Any proposal to Olympus' Governor Bravo follows this lifecycle:
+Any proposal to DAOlympus' Governor Bravo follows this lifecycle:
 
 1. Proposal is submitted by calling `propose()`. Proposal review period begins.
 2. Proposal is activated for voting by calling `activate()`. Proposal voting period begins.
 3. Proposal is queued by calling `queue()`. Proposal is transfered to Timelock, and grace period begins.
-4. Proposal is executed by calling `execute()`, upgrading Olympus protocol.
+4. Proposal is executed by calling `execute()`, upgrading DAOlympus protocol.
 
 ![proposal-timeline-diagram](/gitbook/assets/proposal-timeline-diagram.svg)
 
 ## Proposal Submission
 To submit a new proposal to On-chain Governance (OCG), submitters interact directly with Governor Bravo contract by calling propose() function. However, the following requirements must be met before submitting a proposal:
 
-1. **Minimum voting power** - proposer must hold, and maintain, at least proposalThreshold of the total gOHM supply at time of proposal submission.
+1. **Minimum voting power** - proposer must hold, and maintain, at least proposalThreshold of the total gDAOHM supply at time of proposal submission.
 2. **Code review** - proposals must be added, tested and simulated in olympus-v3 repository. This process ensures that the proposal is secure and achieves the intended outcomes without putting the protocol at risk.
 
 To learn more about how to submit proposals, visit [Proposal Submission Framework page](./proposal_submission).
 
 
 :::info
-The current proposalThreshold is set to 0.017% of the total gOHM supply
+The current proposalThreshold is set to 0.017% of the total gDAOHM supply
 :::
 
 
@@ -38,7 +44,7 @@ OCG's trustless nature is one of its greatest strengths, but it also presents a 
 4. Security Assurance: This phase is critical for safeguarding the protocol against malicious proposals.
 5. Community Engagement: Active community participation is vital in evaluating the proposal's feasibility and impact.
 
-To address this challenge, Olympus uses [forge-proposal-simulator](https://solidity-labs.gitbook.io/forge-proposal-simulator/), an open-source framework designed to structure proposals effectively and streamline the proposal verification process. On a high-level, this framework allows anyone to execute proposals in a forked environment and develop integration tests to examine the new system's behavior in a controlled sandbox.
+To address this challenge, DAOlympus uses [forge-proposal-simulator](https://solidity-labs.gitbook.io/forge-proposal-simulator/), an open-source framework designed to structure proposals effectively and streamline the proposal verification process. On a high-level, this framework allows anyone to execute proposals in a forked environment and develop integration tests to examine the new system's behavior in a controlled sandbox.
 
 Due to the importance of this framework in ensuring transparency and security, **Emergency MS will veto any proposals not adopting it**. This stance is based on the belief that **omitting the framework could indicate an attempt to pass a harmful proposal** by obfuscating its review process.
 
@@ -67,7 +73,7 @@ function getQuorumVotes() public view returns (uint256) {
 The proposal will use this `quorumVotes` for the remainder of proposal lifecycle.
 
 :::info
-The current quorumPct is set to 20% of gOHM supply
+The current quorumPct is set to 20% of gDAOHM supply
 :::
 
 Also, if the proposal is not activated within the `activationGracePeriod` days after proposal review, it will expire and can no longer be activated. 
@@ -78,7 +84,7 @@ The current activationGracePeriod is set to 1 day
 
 
 ## Proposal Voting
-Olympus' implementation of Governor Bravo employs a pessimistic vote casting mechanism. This mechanism operates under the assumption that all governance proposals could potentially be malicious. Therefore, it consistently computes the most unfavorable voting supply at different timestamps for each participant. This mechanism is designed to prevent voters from altering their exposure level to the gOHM and influence the outcome of the vote. By doing so, it attempts to safeguard the voting process against strategies that manipulate voting power.
+DAOlympus' implementation of Governor Bravo employs a pessimistic vote casting mechanism. This mechanism operates under the assumption that all governance proposals could potentially be malicious. Therefore, it consistently computes the most unfavorable voting supply at different timestamps for each participant. This mechanism is designed to prevent voters from altering their exposure level to the gDAOHM and influence the outcome of the vote. By doing so, it attempts to safeguard the voting process against strategies that manipulate voting power.
 
 ```solidity
 function castVoteInternal(
@@ -99,10 +105,10 @@ function castVoteInternal(
 
 Consider the following examples:
 
-* Alice has 0 gOHM at time of `proposal.startBlock` and 100 gOHM when she votes. `castVote()` will return 0 gOHM.
-* Jim has 100 gOHM at time of `proposal.startBlock` and 0 gOHM when he votes. `castVote()` will return 0 gOHM.
-* Bob has 100 gOHM at time of `proposal.startBlock` and 100 gOHM when he votes. `castVote()` will return 100 gOHM.
-* Robert has 50 gOHM at time of `proposal.startBlock` and 100 gOHM when he votes. `castVote()` will return 50 gOHM.
+* Alice has 0 gDAOHM at time of `proposal.startBlock` and 100 gDAOHM when she votes. `castVote()` will return 0 gDAOHM.
+* Jim has 100 gDAOHM at time of `proposal.startBlock` and 0 gDAOHM when he votes. `castVote()` will return 0 gDAOHM.
+* Bob has 100 gDAOHM at time of `proposal.startBlock` and 100 gDAOHM when he votes. `castVote()` will return 100 gDAOHM.
+* Robert has 50 gDAOHM at time of `proposal.startBlock` and 100 gDAOHM when he votes. `castVote()` will return 50 gDAOHM.
 
 At the end of the voting period, the contract checks proposal's state by checking two things:
 
@@ -134,7 +140,7 @@ The current votingPeriod is set to 7 days from the time the proposal is activate
 :::
 
 :::info
-The current quorumPct is set to 20% of gOHM supply
+The current quorumPct is set to 20% of gDAOHM supply
 :::
 
 :::info
@@ -144,7 +150,7 @@ The current approvalThresholdPct is set to 60%
 
 
 ## Proposal Queuing
-Anyone can activate a proposal by calling `queue()`. Queueing a proposal prepares the proposal for execution by the Timelock contract in `delay` days. The proposer's gOHM balance is again checked during `queue()`. If the balance falls below `proposalThreshold`, the proposal will fail.
+Anyone can activate a proposal by calling `queue()`. Queueing a proposal prepares the proposal for execution by the Timelock contract in `delay` days. The proposer's gDAOHM balance is again checked during `queue()`. If the balance falls below `proposalThreshold`, the proposal will fail.
 
 :::info
 The current delay is set to 1 day
@@ -152,7 +158,7 @@ The current delay is set to 1 day
 
 
 ## Proposal Execution
-Any can execute a proposal by calling `execute()`. Executing a proposal triggers the Timelock contract to execute the proposal's actions. The proposer's gOHM balance is again checked during `execute()`. If the balance falls below `proposalThreshold`, the proposal will fail. 
+Any can execute a proposal by calling `execute()`. Executing a proposal triggers the Timelock contract to execute the proposal's actions. The proposer's gDAOHM balance is again checked during `execute()`. If the balance falls below `proposalThreshold`, the proposal will fail. 
 
 Also, if the proposal is not activated within the `GRACE_PERIOD` days after proposal is queued, it will expire and can no longer be executed. 
 
@@ -161,7 +167,7 @@ The current GRACE_PERIOD is set to 1 day
 :::
 
 ## Canceling Proposal
-The proposal can be canceled at any time (before execution) by the proposer. A proposer can be canceled by anyone only if the proposer's gOHM balance
+The proposal can be canceled at any time (before execution) by the proposer. A proposer can be canceled by anyone only if the proposer's gDAOHM balance
 is below `proposalThreshold`.
 
 ## Vetoing Proposal
@@ -172,12 +178,12 @@ The current Veto Guardian is set to Emergency MS
 :::
 
 ## Emergency State
-In the event that gOHM supply collapsed below MIN_GOHM_SUPPLY, Governor Bravo contract enters an emergency state. No
+In the event that gDAOHM supply collapsed below MIN_GDAOHM_SUPPLY, Governor Bravo contract enters an emergency state. No
 proposal can be submitted, activated, queued, or executed. The only action that can be taken is `emergencyPropose()` which
 can only be called by Veto Guardian. This function is used to propose a new proposal to address the emergency situation.
 
 :::info
-The current MIN_GOHM_SUPPLY is set to 1000 gOHM
+The current MIN_GDAOHM_SUPPLY is set to 1000 gDAOHM
 :::
 
 
